@@ -1,35 +1,41 @@
 <form method="POST">
-    Masukan Angka:
-    <input type="text" name="angka">
-    <button type="submit">Cek</button>
+    Angka 1:
+    <input type="number" name="angka1"><br><br>
+
+    Angka 2:
+    <input type="number" name="angka2"><br><br>
+
+    <button type="submit" name="hitung">Hitung</button>
 </form>
 
 <?php
-function pisahGenapGanjil($max){
-    $genap = [];
-    $ganjil = [];
-    $totalGenap = 0;
-    $totalGanjil = 0;
-
-    for($i = 1; $i <= $max; $i++){
-        if($i % 2 == 0){
-            $genap[] = $i;
-            $totalGenap += $i; 
-        } else {
-            $ganjil[] = $i;
-            $totalGanjil += $i;
-        }
-    }
-
-    echo "<br>Bilangan Genap: " . implode(", ", $genap) . "<br>";
-    echo "Total Genap: $totalGenap <br>";
-
-    echo "<br>Bilangan Ganjil: " . implode(", ", $ganjil) . "<br>";
-    echo "Total Ganjil: $totalGanjil <br>";
+function tambah($a, $b){
+    return $a + $b;
 }
 
-if(isset($_POST['angka'])){
-    $angka = $_POST['angka'];
-    pisahGenapGanjil($angka);
+function kurang($a, $b){
+    return $a - $b;
+}
+
+function kali($a, $b){
+    return $a * $b;
+}
+
+function bagi($a, $b){
+    if($b == 0){
+        return "Tidak bisa dibagi dengan nol";
+    }
+    return $a / $b;
+}
+
+if(isset($_POST['hitung'])){
+    $a = $_POST['angka1'];
+    $b = $_POST['angka2'];
+
+    echo "<h3>Hasil:</h3>";
+    echo "Penjumlahan: " . tambah($a, $b) . "<br>";
+    echo "Pengurangan: " . kurang($a, $b) . "<br>";
+    echo "Perkalian: " . kali($a, $b) . "<br>";
+    echo "Pembagian: " . bagi($a, $b) . "<br>";
 }
 ?>
