@@ -1,3 +1,42 @@
+<?php
+session_start();
+$user_benar = "admin";
+$pass_benar = "12345";
+
+if(isset($_POST['login'])){
+    $user = $_POST['username'];
+    $pass = $_POST['password'];
+
+    if($user == $user_benar && $pass == $pass_benar){
+        $_SESSION['login'] = true;
+        $pesan = "Login berhasil";
+    } else {
+        $pesan = "Login gagal";
+    }
+}
+?>
+
+<?php if(!isset($_SESSION['login'])): ?>
+<form method="POST">
+    <h2>Login</h2>
+    Username:
+    <input type="text" name="username"><br><br>
+
+    Password:
+    <input type="password" name="password"><br><br>
+
+    <button type="submit" name="login">Login</button>
+</form>
+
+<?php 
+if(isset($pesan)){
+    echo "<p>$pesan</p>";
+}
+?>
+
+<?php else: ?>
+<h3>Login berhasil</h3>
+
 <form method="POST">
     Angka 1:
     <input type="number" name="angka1"><br><br>
@@ -54,3 +93,5 @@ if(isset($_POST['angka1']) && isset($_POST['angka2'])){
     }
 }
 ?>
+
+<?php endif; ?>
