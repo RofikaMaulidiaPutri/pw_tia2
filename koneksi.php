@@ -4,9 +4,9 @@ $dbuser = "root";
 $dbpass = "";
 $dbname = "db_tia2";
 
-$koniksi = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+$koneksi = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
-if (!$koniksi) {
+if (!$koneksi) {
     die("koneksi gagal:" . mysqli_connect_error());
 } else {
     echo "koneksi berhasil";
