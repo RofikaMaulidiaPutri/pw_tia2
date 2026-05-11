@@ -24,3 +24,44 @@ if (isset($_POST['Kirim'])) {
 }
 
 ?>
+
+<table border="1" cellpading="10" cellpacing="0">
+    <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Nama</th>
+        <th>Email</th>
+        <th>Aksi</th>
+    </tr>
+</table>
+<?php
+$query = "SELECT * FROM user";
+$result = mysqli_query($koneksi, $query);
+?>
+
+<table border="1" cellpadding="10" cellspacing="0">
+    <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Nama</th>
+        <th>Email</th>
+        <th>Aksi</th>
+    </tr>
+
+<?php
+while ($row = mysqli_fetch_assoc($result)) {
+?>
+    <tr>
+        <td><?= $row['username']; ?></td>
+        <td><?= $row['password']; ?></td>
+        <td><?= $row['nama']; ?></td>
+        <td><?= $row['email']; ?></td>
+        <td>
+            <a href="materi4.php?id=<?= $row['ID']; ?>">Edit</a> | 
+            <a href="delete.php?id=<?= $row['ID']; ?>" onclick="return confirm('Yakin mau hapus?')">Hapus</a>
+        </td>
+    </tr>
+<?php
+}
+?>
+</table>
