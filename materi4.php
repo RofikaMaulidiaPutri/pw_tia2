@@ -186,6 +186,7 @@ table td{
     padding:15px;
     background:#f9fafb;
     border-bottom:1px solid #ddd;
+    color:#111827;
 }
 
 table tr:hover td{
@@ -225,10 +226,6 @@ table tr:hover td{
 </style>
 </head>
 <body>
-
-<?php
-include "koneksi.php";
-?>
 
 <div class="container">
 
