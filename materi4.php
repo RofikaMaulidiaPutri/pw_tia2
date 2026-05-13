@@ -320,7 +320,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                     </a>
 
                     <a class="hapus"
-                    href="delete.php?hapus=<?= $row['ID']; ?>"
+                    href="materi4.php?hapus=<?= $row['ID']; ?>"
                     onclick="return confirm('Yakin mau hapus?')">
                     Hapus
                     </a>
