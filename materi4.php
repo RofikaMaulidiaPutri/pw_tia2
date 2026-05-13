@@ -1,3 +1,27 @@
+<?php
+
+include "koneksi.php";
+
+if(isset($_GET['hapus'])){
+
+    $ID = $_GET['hapus'];
+
+    $query = "DELETE FROM user WHERE ID='$ID'";
+
+    if(mysqli_query($koneksi, $query)){
+
+        header("Location: materi4.php");
+        exit;
+
+    } else {
+
+        echo "Data gagal dihapus";
+
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
